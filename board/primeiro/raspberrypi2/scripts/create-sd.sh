@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! $1 ]; then
+    echo "USAGE: $0 <drive>"
+    exit -1
+fi
 
 if [[ -b $1 ]]
 then
