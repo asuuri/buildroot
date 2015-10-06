@@ -1,0 +1,13 @@
+diff --git a/pi-blaster.boot.sh b/pi-blaster.boot.sh
+index 41549a9..1551a3c 100644
+--- a/pi-blaster.boot.sh
++++ b/pi-blaster.boot.sh
+@@ -18,7 +18,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
+ DESC="Daemon for PWM control of the Raspberry PI GPIO pins"
+ NAME=pi-blaster
+ DAEMON=/usr/sbin/$NAME
+-DAEMON_ARGS=""
++DAEMON_ARGS="--invert"
+ SCRIPTNAME=/etc/init.d/$NAME
+ 
+ # Exit if the package is not installed
