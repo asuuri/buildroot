@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Load deifined modules from /etc/modules file
+#
+
+test -f /etc/modules || exit 0
+
+case "$1" in
+    start)
+        echo -n "Loading modules: "
+        for mod in $(cat "/etc/modules")
+        do
+            modprobe "${mod}"
+        done
+        [ $? = 0 ] && echo "OK" || echo "FAIL"
+        ;;
+    *)
+        echo "Usage: /etc/init.d/S00modules {start}"
+        exit 1
+esac
+
+exit 0
