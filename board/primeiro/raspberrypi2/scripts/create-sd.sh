@@ -7,7 +7,7 @@ fi
 
 if [[ $1 == '-l' ]]; then
     echo "---"
-    parted -l 2> /dev/null | grep -e '\(Model:\|Disk \/\)' | sed '/Disk /a ---' --
+    parted -s -l 2> /dev/null | grep -e '\(Model:\|Disk \/\)' | sed '/Disk /a ---' --
     exit
 fi
 
@@ -15,13 +15,13 @@ drive=$1
 
 if [[ -b $drive ]]; then
     fdisk -l $drive
-    read -p "Continue? (y/N): " -n 1 -r doContinue
+    read -p "Continue? (y/N): " -r doContinue
     echo
 
     if [[ $doContinue =~ ^[Yy]$ ]]; then
         echo
         echo "## Unmounting"
-        for n in "$drive*" ; do 
+        for n in "$drive*" ; do
             umount $n > /dev/null 2>&1
         done
 
@@ -57,7 +57,7 @@ if [[ -b $drive ]]; then
         `pwd`/output/host/usr/bin/mkknlimg output/images/zImage "${BOOT_MOUNT_POINT}/zImage"
 
         echo
-        echo "## Creating root section"        
+        echo "## Creating root section"
         tar xf `pwd`/output/images/rootfs.tar -C $ROOT_MOUNT_POINT
 
         echo
