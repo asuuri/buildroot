@@ -438,6 +438,7 @@ endif
 	source "package/w_scan/Config.in"
 	source "package/wf111/Config.in"
 	source "package/wipe/Config.in"
+	source "package/wlan/Config.in"
 	source "package/xorriso/Config.in"
 endmenu
 

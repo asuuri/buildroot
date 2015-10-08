@@ -1,0 +1,26 @@
+config BR2_PACKAGE_WLAN
+    bool "wlan"
+    help
+        Enable wlan config
+
+if BR2_PACKAGE_WLAN
+config BR2_PACKAGE_WLAN_INDEX
+    int "Wlan interface index number"
+    default 0
+    help
+        Value of the wireless lan interface index number
+
+config BR2_PACKAGE_WLAN_IP
+    string "Wlan interface ip address"
+    default 192.168.69.1
+    help
+        Value of the wireless lan interface static ip
+
+config BR2_PACKAGE_WLAN_MASK
+    string "Wlan interface network mask"
+    default 255.255.255.0
+    help
+        Value of the wireless lan interface network mask
+
+endif
+
